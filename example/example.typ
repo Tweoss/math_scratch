@@ -1,4 +1,4 @@
-#import "template.typ": *
+#import "../template.typ": *
 #show: homework.with(
   class: "MATH 62CM",
   number: 9,
