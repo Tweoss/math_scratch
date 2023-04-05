@@ -144,13 +144,12 @@
     problem_counter.update(number + 1)
   }
   show: block.with(spacing: 11.5pt)
-  let number = problem_counter.display((top_num, ..nums) => top_num - 1)
   
   // Problem #
   {
     set text(size: 1.4em, weight: 800)
     v(11pt, weak: true)
-    [Problem #number]
+    [Problem #problem_counter.display()]
   }
   {
     // body inside a block
@@ -159,24 +158,21 @@
   }
 })
 
-#let solution(body, level: 1, format: "a.a") = locate(location => {
+#let solution(body, level: 1, format: "1.a") = locate(location => {
   // Only display Solution # for more nested solutions
   if level != 1 {
     problem_counter.step(level: level)
-    let top_number = problem_counter.at(location).first() - 1
-    let number = problem_counter.display((_, ..nums) => {
-      [
-        Solution #top_number.#numbering(format, ..nums)
-      ]
-    })
-    
+    let top_number = problem_counter.at(location).first()
+
     // Heading
     {
       set text(size: 1.2em, weight: 800)
-      emph(number)
+      set par(first-line-indent: 0pt)
+      emph([Solution #problem_counter.display((..nums) => numbering(format, ..nums))])
     }
     linebreak()
   }
+  
   [#body]
   // should go to next page for a one part solution that is not the last one
   if level == 1 {
