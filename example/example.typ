@@ -41,7 +41,7 @@
   + Find a vector field tangent to $S^(2n-1)$ which has no zeroes.
 ]
 
-#solution(level: 2)[
+#solution(level: 1)[
   Define a vector field on $sq(RR)$ as $(1/(x^2+y^2+1), 0)$. This vector field always points to the right and has magnitude that goes to $0$ at infinity. Then, take the map from $RR^2$ to $S^2$ as the projection by the north pole. This is a diffeomorphism, and we use it to map the vector field onto the sphere. At the north pole, the projection is undefined, so we take the vector field to be $0$ there. Because the vector field on $RR^2$ decreases to $0$ at infinity, the vector field on $S^2$ decreases to $0$ near the north pole. 
 
   The vectors near the north pole look as in below. 
@@ -54,10 +54,11 @@
   We can see that the vector field wraps around twice counterclockwise near the $0$ that is the north pole. Everywhere else, the vector field is defined to be nonzero, so there is exactly one $0$ of index $2$ on the sphere. 
 ]
 
-
-#solution(level: 2)[
+#solution(level: 1)[
   Take the vector field $(-y_1, x_1, -y_2, x_2, dots)$. Evidently, this is perpendicular to the vector $(x_1, y_1, x_2, y_2, dots)$ since the dot product of the two is $0$. Therefore, the vector field is tangent to $S^(2n-1)$. Since we are on the sphere, at least one of these coordinates must be nonzero for $x^2_1 + y^2_1 + x^2_2 + y^2_2 + ... = 1$ to be true. Therefore, the vector field is also nonzero on the sphere. 
 ]
+
+#pagebreak()
 
 #problem[Show that there are no degree $1$ maps $f: S^2 -> T^2$.]
 

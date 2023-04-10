@@ -158,11 +158,11 @@
   }
 })
 
-#let solution(body, level: 1, format: "1.a") = locate(location => {
+#let solution(body, level: 0, format: "1.a") = locate(location => {
   // Only display Solution # for more nested solutions
-  if level != 1 {
-    problem_counter.step(level: level)
-    let top_number = problem_counter.at(location).first()
+  if level != 0 {
+    problem_counter.step(level: level + 1)
+    // let top_number = problem_counter.at(location).first()
 
     // Heading
     {
@@ -174,13 +174,14 @@
   }
   
   [#body]
+  
   // should go to next page for a one part solution that is not the last one
-  if level == 1 {
+  if level == 0 {
     if problem_counter.at(location) != problem_counter.final(location) {
       pagebreak(weak: true)
     }
   } else {
-    linebreak()
+    v(normal-size)
   }
 })
 
